@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 json_file=open('week1.json')
 data=json.load(json_file)
-print(type(data))
+
 view={'Monday':{},'Tuesday':{},'Wednesday':{},'Thursday':{},'Friday':{}}
 
 for p in data:
@@ -22,11 +22,24 @@ for p in data:
         view['Friday'][p[1]['time']] = temp
 
 for k,v in view.items():
-    x=sorted(v)
+    x=sorted(v.keys())
+    y=sorted(v.values())
+    # print(y)
     print(k)
     print("========")
+    print("TIme  "," Rooms ")
+    lx = []
+    ly = []
     for i in x:
-         print("{}={}".format(i,v[i]))
+        lx.append(i)
+        ly.append(v[i])
+        print("{} \t {}".format(i,v[i]))
+    plt.bar(lx,ly,label=k)
+    plt.legend()
+    plt.xlabel('time')
+    plt.ylabel('Available room')
+    plt.title('My Graph')
+    plt.show()
     print()
 
 
