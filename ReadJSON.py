@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot as plt
 
 json_file=open('week1.json')
 data=json.load(json_file)
@@ -21,7 +22,11 @@ for p in data:
         view['Friday'][p[1]['time']] = temp
 
 for k,v in view.items():
-    print("{}===>{}".format(k,v))
-
+    x=sorted(v)
+    print(k)
+    print("========")
+    for i in x:
+         print("{}={}".format(i,v[i]))
+    print()
 
 
