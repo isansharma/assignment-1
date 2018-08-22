@@ -41,7 +41,6 @@ def extract(key,view):
 def plot(week1,week2,key):
     x1,y1=week1
     x2,y2=week2
-    # print(x1)
     plt.plot(x1,y1,label='week1')
     plt.plot(x2,y2,label='week2')
     plt.xlabel('Time')
@@ -51,7 +50,8 @@ def plot(week1,week2,key):
     plt.show()
 
 dow=['Monday','Tuesday','Wednesday','Thursday','Friday']
-day=input("Please choose a Day of the Week to compare \n Monday,Tuesday,Wednesday,Thursday,Friday \n")
+day1=input("Please choose a Day of the Week to compare \n Monday,Tuesday,Wednesday,Thursday,Friday \n")
+day=day1.title()
 if day in dow:
     view1=read('week1.json')
     week1=extract(day,view1)
